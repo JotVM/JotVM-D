@@ -11,7 +11,7 @@ public:
 
     string[] args = [];
 
-    static immutable string usage = import("Help.txt");
+    static immutable string usage = "";
 
     static Args parse(string[] args) {
         Args cmd = new Args();
@@ -24,9 +24,9 @@ public:
             "classpath|cp", &cmd.cpOption
         );
 
-        if (args.length > 1) {
-            cmd.mainClass = args[1];
-            cmd.args = args[2..$];
+        if (args.length > 0) {
+            cmd.mainClass = args[0];
+            cmd.args = args[1..$];
         }
         return cmd;
     }
